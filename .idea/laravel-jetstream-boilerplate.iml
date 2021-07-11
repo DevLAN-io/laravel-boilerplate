@@ -123,6 +123,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-diactoros" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/octane" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/horizon" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

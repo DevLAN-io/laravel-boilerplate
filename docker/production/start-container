@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+if [ ! -d /var/log/supervisor/ ]; then
+    mkdir /var/log/supervisor/
+fi
+
+chmod -R ugo+rw /.composer
+
+until nc -z -v -w30 $DB_HOST $DB_PORT; do echo "Waiting for database connection..."; sleep 1; done
+until nc -z -v -w30 $REDIS_HOST $REDIS_PORT; do echo "Waiting for redis connection..."; sleep 1; done
+
+if [ $# -gt 0 ]; then
+    exec "$@"
+else
+    php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan horizon:terminate
+    /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+fi
